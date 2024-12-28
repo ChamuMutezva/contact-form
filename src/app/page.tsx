@@ -64,17 +64,17 @@ export default function Home() {
         console.log(data);
         toast.toast({
             title: "Message sent!",
-            description: "Thank you for completing the form, we will be in touch soon",
-        })
-       form.reset();
+            description: `Thank you ${data.firstName} for completing the form, we will be in touch soon`,
+        });
+        form.reset();
     }
     return (
-        <main className="max-w-[42rem] w-full bg-[hsl(var(--white))] rounded-md mx-4 my-8 p-6 sm:p-10">
+        <main className="max-w-[42rem] w-full bg-[hsl(var(--white))] rounded-2xl mx-4 my-8 p-6 sm:p-10">
             <h2 className="text-preset-3 font-bold">Contact us</h2>
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="grid gap-4 w-full sm:grid-cols-2"
+                    className="grid gap-4 mt-7 w-full sm:grid-cols-2"
                 >
                     {/*FIRST NAME */}
                     <FormField
@@ -86,7 +86,11 @@ export default function Home() {
                                     First Name *
                                 </FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Chamu" {...field} />
+                                    <Input
+                                        placeholder="Chamu"
+                                        className="py-6"
+                                        {...field}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -102,7 +106,11 @@ export default function Home() {
                                     Last Name *
                                 </FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Mutezva" {...field} />
+                                    <Input
+                                        placeholder="Mutezva"
+                                        className="py-6"
+                                        {...field}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -122,6 +130,7 @@ export default function Home() {
                                     <Input
                                         placeholder="example@xyz.com"
                                         autoComplete="email"
+                                        className="py-6"
                                         {...field}
                                     />
                                 </FormControl>
@@ -142,9 +151,9 @@ export default function Home() {
                                     <RadioGroup
                                         onValueChange={field.onChange}
                                         defaultValue={field.value}
-                                        className="flex flex-col sm:flex-row sm:justify-between gap-2 sm:items-center space-y-1"
+                                        className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:items-center"
                                     >
-                                        <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md p-2">
+                                        <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md px-2 py-4">
                                             <FormControl>
                                                 <RadioGroupItem value="general" />
                                             </FormControl>
@@ -155,7 +164,7 @@ export default function Home() {
                                                 General enquiry
                                             </FormLabel>
                                         </FormItem>
-                                        <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md p-2">
+                                        <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md px-2 py-4">
                                             <FormControl>
                                                 <RadioGroupItem value="support" />
                                             </FormControl>
@@ -184,6 +193,7 @@ export default function Home() {
                                 </FormLabel>
                                 <FormControl>
                                     <Textarea
+                                        rows={5}
                                         placeholder="Tell us a little bit about yourself"
                                         className="resize-none"
                                         {...field}
