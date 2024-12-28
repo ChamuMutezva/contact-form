@@ -19,6 +19,9 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useToast } from "@/hooks/use-toast";
+// import { ToastAction } from "@/components/ui/toast";
+import { Toaster } from "@/components/ui/toaster";
 
 const FormSchema = z.object({
     firstName: z.string().min(2, {
@@ -44,6 +47,8 @@ const FormSchema = z.object({
 });
 
 export default function Home() {
+    const toast = useToast();
+
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -57,6 +62,11 @@ export default function Home() {
     });
     function onSubmit(data: z.infer<typeof FormSchema>) {
         console.log(data);
+        toast.toast({
+            title: "Message sent!",
+            description: "Thank you for completing the form, we will be in touch soon",
+        })
+       form.reset();
     }
     return (
         <main className="max-w-[42rem] w-full bg-[hsl(var(--white))] rounded-md mx-4 my-8 p-6 sm:p-10">
@@ -134,7 +144,7 @@ export default function Home() {
                                         defaultValue={field.value}
                                         className="flex flex-col sm:flex-row sm:justify-between gap-2 sm:items-center space-y-1"
                                     >
-                                        <FormItem className="flex-1 items-center space-x-3 space-y-0 border rounded-md p-2">
+                                        <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md p-2">
                                             <FormControl>
                                                 <RadioGroupItem value="general" />
                                             </FormControl>
@@ -145,7 +155,7 @@ export default function Home() {
                                                 General enquiry
                                             </FormLabel>
                                         </FormItem>
-                                        <FormItem className="flex-1 items-center space-x-3 space-y-0 border rounded-md p-2">
+                                        <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md p-2">
                                             <FormControl>
                                                 <RadioGroupItem value="support" />
                                             </FormControl>
@@ -217,6 +227,7 @@ export default function Home() {
                     </Button>
                 </form>
             </Form>
+            <Toaster />
         </main>
     );
 }
