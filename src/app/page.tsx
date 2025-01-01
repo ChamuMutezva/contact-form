@@ -83,7 +83,10 @@ export default function Home() {
                         render={({ field }) => (
                             <FormItem className="col-span-2 sm:col-span-1">
                                 <FormLabel className="text-base">
-                                    First Name *
+                                    First Name{" "}
+                                    <span className="text-[hsl(var(--green-600))]">
+                                        *
+                                    </span>
                                 </FormLabel>
                                 <FormControl>
                                     <Input
@@ -103,7 +106,10 @@ export default function Home() {
                         render={({ field }) => (
                             <FormItem className="col-span-2 sm:col-span-1">
                                 <FormLabel className="text-base">
-                                    Last Name *
+                                    Last Name{" "}
+                                    <span className="text-[hsl(var(--green-600))]">
+                                        *
+                                    </span>
                                 </FormLabel>
                                 <FormControl>
                                     <Input
@@ -124,7 +130,10 @@ export default function Home() {
                         render={({ field }) => (
                             <FormItem className="col-span-2">
                                 <FormLabel className="text-base">
-                                    Email address *
+                                    Email address{" "}
+                                    <span className="text-[hsl(var(--green-600))]">
+                                        *
+                                    </span>
                                 </FormLabel>
                                 <FormControl>
                                     <Input
@@ -145,7 +154,10 @@ export default function Home() {
                         render={({ field }) => (
                             <FormItem className="col-span-2">
                                 <FormLabel className="text-base">
-                                    Query type *
+                                    Query type{" "}
+                                    <span className="text-[hsl(var(--green-600))]">
+                                        *
+                                    </span>
                                 </FormLabel>
                                 <FormControl>
                                     <RadioGroup
@@ -189,7 +201,10 @@ export default function Home() {
                         render={({ field }) => (
                             <FormItem className="col-span-2">
                                 <FormLabel className="text-base">
-                                    Message *
+                                    Message{" "}
+                                    <span className="text-[hsl(var(--green-600))]">
+                                        *
+                                    </span>
                                 </FormLabel>
                                 <FormControl>
                                     <Textarea
