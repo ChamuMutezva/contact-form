@@ -69,7 +69,7 @@ export default function Home() {
         form.reset();
     }
     return (
-        <main className="max-w-[42rem] w-full bg-[hsl(var(--white))] rounded-2xl mx-4 my-8 p-6 sm:p-10">
+        <main className="max-w-[46rem] w-full bg-[hsl(var(--white))] rounded-2xl p-6 sm:p-10">
             <h2 className="text-preset-3 font-bold">Contact us</h2>
             <Form {...form}>
                 <form
