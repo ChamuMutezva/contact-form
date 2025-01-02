@@ -153,7 +153,7 @@ export default function Home() {
                         name="type"                      
                         render={({ field }) => (
                             <FormItem className="col-span-2">
-                                <FormLabel className="text-base">
+                                <FormLabel id="label-type" htmlFor="type-group" className="text-base">
                                     Query type{" "}
                                     <span className="text-[hsl(var(--green-600))]">
                                         *
@@ -163,6 +163,8 @@ export default function Home() {
                                     <RadioGroup                                        
                                         onValueChange={field.onChange}
                                         defaultValue={field.value}
+                                        id="type-group"
+                                        aria-labelledby="type-label"
                                         className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:items-center"
                                     >
                                         <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md px-2 py-4">
@@ -170,11 +172,13 @@ export default function Home() {
                                                 <RadioGroupItem
                                                     value="general"
                                                     id="general"
+                                                    aria-labelledby="general-label"
                                                 />
                                             </FormControl>
                                             <FormLabel
                                                 className="font-normal text-preset-2"
                                                 htmlFor="general"
+                                                id="general-label"
                                             >
                                                 General enquiry
                                             </FormLabel>
@@ -184,11 +188,13 @@ export default function Home() {
                                                 <RadioGroupItem
                                                     value="support"
                                                     id="support"
+                                                    aria-labelledby="support-label"
                                                 />
                                             </FormControl>
                                             <FormLabel
                                                 className="font-normal text-preset-2"
                                                 htmlFor="support"
+                                                id="support-label"
                                             >
                                                 Support request
                                             </FormLabel>
