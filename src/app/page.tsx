@@ -91,7 +91,7 @@ export default function Home() {
                                 <FormControl>
                                     <Input
                                         placeholder="Chamu"
-                                        className="py-6"
+                                        className="py-6 text-lg"
                                         {...field}
                                     />
                                 </FormControl>
@@ -114,7 +114,7 @@ export default function Home() {
                                 <FormControl>
                                     <Input
                                         placeholder="Mutezva"
-                                        className="py-6"
+                                        className="py-6 text-lg"
                                         {...field}
                                     />
                                 </FormControl>
@@ -139,7 +139,7 @@ export default function Home() {
                                     <Input
                                         placeholder="example@xyz.com"
                                         autoComplete="email"
-                                        className="py-6"
+                                        className="py-6 text-lg"
                                         {...field}
                                     />
                                 </FormControl>
@@ -150,7 +150,7 @@ export default function Home() {
                     {/* QUERY TYPE */}
                     <FormField
                         control={form.control}
-                        name="type"
+                        name="type"                      
                         render={({ field }) => (
                             <FormItem className="col-span-2">
                                 <FormLabel className="text-base">
@@ -160,14 +160,17 @@ export default function Home() {
                                     </span>
                                 </FormLabel>
                                 <FormControl>
-                                    <RadioGroup
+                                    <RadioGroup                                        
                                         onValueChange={field.onChange}
                                         defaultValue={field.value}
                                         className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:items-center"
                                     >
                                         <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md px-2 py-4">
                                             <FormControl>
-                                                <RadioGroupItem value="general" />
+                                                <RadioGroupItem
+                                                    value="general"
+                                                    id="general"
+                                                />
                                             </FormControl>
                                             <FormLabel
                                                 className="font-normal text-preset-2"
@@ -178,7 +181,10 @@ export default function Home() {
                                         </FormItem>
                                         <FormItem className="flex-1 flex items-center space-x-3 space-y-0 border rounded-md px-2 py-4">
                                             <FormControl>
-                                                <RadioGroupItem value="support" />
+                                                <RadioGroupItem
+                                                    value="support"
+                                                    id="support"
+                                                />
                                             </FormControl>
                                             <FormLabel
                                                 className="font-normal text-preset-2"
@@ -210,7 +216,7 @@ export default function Home() {
                                     <Textarea
                                         rows={5}
                                         placeholder="Tell us a little bit about yourself"
-                                        className="resize-none"
+                                        className="resize-none text-lg"
                                         {...field}
                                     />
                                 </FormControl>
