@@ -242,10 +242,11 @@ export default function Home() {
                                         <Checkbox
                                             checked={field.value}
                                             onCheckedChange={field.onChange}
+                                            aria-labelledby="consent-label"
                                         />
                                     </FormControl>
                                     <div className="space-y-1 leading-none">
-                                        <FormLabel className="text-base">
+                                        <FormLabel className="text-base" id="consent-label">
                                             I consent to be contacted by the
                                             team
                                         </FormLabel>
