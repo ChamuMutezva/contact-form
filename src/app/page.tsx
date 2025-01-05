@@ -24,19 +24,28 @@ import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
 
 const FormSchema = z.object({
-    firstName: z.string().min(2, {
-        message: "First name must be at least 2 characters.",
-    }).trim(),
-    lastName: z.string().min(2, {
-        message: "Last name must be at least 2 characters.",
-    }).trim(),
+    firstName: z
+        .string()
+        .min(2, {
+            message: "First name must be at least 2 characters.",
+        })
+        .trim(),
+    lastName: z
+        .string()
+        .min(2, {
+            message: "Last name must be at least 2 characters.",
+        })
+        .trim(),
     email: z.string().email().trim(),
     type: z.enum(["general", "support"], {
         required_error: "You need to select a notification type.",
     }),
-    message: z.string().min(20, {
-        message: "Message must be at least 20 characters.",
-    }).trim(),
+    message: z
+        .string()
+        .min(20, {
+            message: "Message must be at least 20 characters.",
+        })
+        .trim(),
     consent: z
         .boolean({
             required_error: "You must agree to be contacted.",
@@ -69,8 +78,10 @@ export default function Home() {
         form.reset();
     }
     return (
-        <main className="max-w-[46rem] w-full bg-[hsl(var(--white))] rounded-2xl p-6 sm:p-10">
-            <h2 className="text-preset-3 font-bold">Contact us</h2>
+        <main className="max-w-[46rem] w-full bg-[hsl(var(--white))] rounded-2xl p-6 sm:py-8 sm:px-10">
+            <h2 className="text-preset-3 text-[hsl(var(--grey-900))] font-bold">
+                Contact us
+            </h2>
             <Form {...form}>
                 <form
                     onSubmit={form.handleSubmit(onSubmit)}
@@ -150,17 +161,21 @@ export default function Home() {
                     {/* QUERY TYPE */}
                     <FormField
                         control={form.control}
-                        name="type"                      
+                        name="type"
                         render={({ field }) => (
                             <FormItem className="col-span-2">
-                                <FormLabel id="label-type" htmlFor="type-group" className="text-base">
+                                <FormLabel
+                                    id="label-type"
+                                    htmlFor="type-group"
+                                    className="text-base"
+                                >
                                     Query type{" "}
                                     <span className="text-[hsl(var(--green-600))]">
                                         *
                                     </span>
                                 </FormLabel>
                                 <FormControl>
-                                    <RadioGroup                                        
+                                    <RadioGroup
                                         onValueChange={field.onChange}
                                         defaultValue={field.value}
                                         id="type-group"
@@ -237,7 +252,7 @@ export default function Home() {
                         name="consent"
                         render={({ field }) => (
                             <FormItem className="col-span-2">
-                                <div className="flex flex-row items-center space-x-3 space-y-0">
+                                <div className="flex flex-row items-center space-x-3 space-y-0 sm:my-6">
                                     <FormControl>
                                         <Checkbox
                                             checked={field.value}
@@ -246,7 +261,10 @@ export default function Home() {
                                         />
                                     </FormControl>
                                     <div className="space-y-1 leading-none">
-                                        <FormLabel className="text-base" id="consent-label">
+                                        <FormLabel
+                                            className="text-base"
+                                            id="consent-label"
+                                        >
                                             I consent to be contacted by the
                                             team
                                         </FormLabel>
