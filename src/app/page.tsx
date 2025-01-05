@@ -26,17 +26,17 @@ import { Toaster } from "@/components/ui/toaster";
 const FormSchema = z.object({
     firstName: z.string().min(2, {
         message: "First name must be at least 2 characters.",
-    }),
+    }).trim(),
     lastName: z.string().min(2, {
         message: "Last name must be at least 2 characters.",
-    }),
-    email: z.string().email(),
+    }).trim(),
+    email: z.string().email().trim(),
     type: z.enum(["general", "support"], {
         required_error: "You need to select a notification type.",
     }),
     message: z.string().min(20, {
         message: "Message must be at least 20 characters.",
-    }),
+    }).trim(),
     consent: z
         .boolean({
             required_error: "You must agree to be contacted.",

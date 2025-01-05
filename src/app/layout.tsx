@@ -15,7 +15,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${karlaSans.className} flex justify-center items-center px-4 py-8 sm:px-10 antialiased bg-[hsl(var(--green-200))]`}
+                className={`${karlaSans.className} flex justify-center items-center px-4 py-8 sm:px-10 sm:py-32 antialiased bg-[hsl(var(--green-200))]`}
             >
                 {children}
             </body>
